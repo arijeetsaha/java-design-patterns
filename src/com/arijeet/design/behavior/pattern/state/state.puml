@@ -1,0 +1,72 @@
+@startuml
+
+title __STATE's Class Diagram__\n
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.CancelledState {
+        + handleCancellation()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.Client {
+        {static} + main()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.DeliveredState {
+        + handleCancellation()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.InTransitOrder {
+        + handleCancellation()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.NewState {
+        + handleCancellation()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.Order {
+        + Order()
+        + cancel()
+        + delivered()
+        + dispatched()
+        + paymentSuccessful()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    interface com.arijeet.design.pattern.state.OrderState {
+        {abstract} + handleCancellation()
+    }
+  }
+  
+
+  namespace com.arijeet.design.pattern.state {
+    class com.arijeet.design.pattern.state.PaidState {
+        + handleCancellation()
+    }
+  }
+  
+
+  com.arijeet.design.pattern.state.CancelledState .up.|> com.arijeet.design.pattern.state.OrderState
+  com.arijeet.design.pattern.state.DeliveredState .up.|> com.arijeet.design.pattern.state.OrderState
+  com.arijeet.design.pattern.state.InTransitOrder .up.|> com.arijeet.design.pattern.state.OrderState
+  com.arijeet.design.pattern.state.NewState .up.|> com.arijeet.design.pattern.state.OrderState
+  com.arijeet.design.pattern.state.Order o-- com.arijeet.design.pattern.state.OrderState : orderState
+  com.arijeet.design.pattern.state.PaidState .up.|> com.arijeet.design.pattern.state.OrderState
+
+@enduml
